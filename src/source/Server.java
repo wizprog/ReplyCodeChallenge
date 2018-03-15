@@ -88,10 +88,6 @@ public class Server {
 			}
 		}
 
-		int pop = 0;
-		int k = 0;
-		k++;
-		
 		
 		
 		
