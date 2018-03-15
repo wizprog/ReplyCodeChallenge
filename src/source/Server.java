@@ -78,20 +78,32 @@ public class Server {
 		}
 		
 		
-		for(int i=0;i<arrayProject.size();i++) {
-			for(int j=i;j<arrayProject.size();j++) {
-				if(arrayProject.get(i).getPenalty()<=arrayProject.get(j).getPenalty()) {
-					Project temp=arrayProject.get(i);
-					arrayProject.add(i,arrayProject.remove(j));
-					arrayProject.add(j, temp);
+		
+		for (int i=0 ; i<numOfProj; i++) {
+			for (int j=i+1; j<numOfProj-1; j++) {
+				if (arrayProject.get(i).getPenalty() > arrayProject.get(j).getPenalty())
+				{
+					Project pom = arrayProject.remove(j);
+					Project pom1=arrayProject.remove(i);
+					arrayProject.add(j,pom1);
+					arrayProject.add(i, pom);  						
 				}
 			}
 		}
 
+		String[] output = new String[numOfProj];
+		for (int i=0; i<numOfProj; i++) output[i]="";
 		
-		
-		
-		
+		for (int i=0; i<numOfProj; i++) {
+			boolean done = false;
+			Project trenutni = arrayProject.get(0);
+			int[] need = trenutni.getServices();
+			while(!done) {
+				for (int ko=0; ko<numOfCont; ko++) {
+			//		Provider pom3 = 
+				}
+			}
+		}
 		
 
 
