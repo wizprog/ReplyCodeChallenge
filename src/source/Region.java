@@ -6,6 +6,7 @@ public class Region {
 	int numOfPackages; // available
 	double[] priceOfPackage;
 	int[] s; // units of service per package
+	
 	public String getName() {
 		return name;
 	}
