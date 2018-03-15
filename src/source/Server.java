@@ -46,17 +46,33 @@ public class Server {
 			for (int j=0; i<numOfCity; j++) {
 				String ct = scanner.nextLine();
 				String firstLine = scanner.nextLine();
+				
+				
+				String[] keke = firstLine.split(" ");
+				int numOfPacs = Integer.parseInt(keke[0]);
+				double cost = Double.parseDouble(keke[1]);
+				int[] serviceAmount = new int[numOfServ];
+				for (int p=2; p<keke.length ; p++) serviceAmount[p-2] = Integer.parseInt(keke[p]);
+				
 				String secondLine = scanner.nextLine();
 				String[] latencyCost = secondLine.split(" ");
 				int[] latCst = new int[numOfCont];
 				for (int k=0; k<numOfCont; k++) latCst[k] = Integer.parseInt(latencyCost[k]);
-				Country city = new Country(ct , latCst);
-				arrayProv[i].addCity(city);
-			}
-			
-			
-			
-			
+				Country city = new Country(ct ,numOfPacs,cost,serviceAmount , latCst);
+				arrayProv[i].addCounty(city);
+			}			
+		}
+		
+		Project[] arrayProject = new Project[numOfProj];
+		
+		for (int i=0; i<numOfProj ; i++) {
+			String lol = scanner.nextLine();
+			String[] arej = lol.split(" ");
+			int penalty = Integer.parseInt(arej[0]);
+			String name = arej[1];
+			int[] serviceAmount = new int[numOfServ];
+			for (int o=2;o<arej.length;o++ ) serviceAmount[o-2] = Integer.parseInt(arej[o]);
+			arrayProject[i] = new Project(penalty,name,serviceAmount);
 			
 		}
 		

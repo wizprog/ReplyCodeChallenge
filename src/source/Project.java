@@ -7,11 +7,10 @@ public class Project {
 	Country counrty;
 	int[] services;
 
-	public Project(int penalty, String name, Country counrty, int[] services) {
+	public Project(int penalty, String name, int[] services) {
 		super();
 		this.penalty = penalty;
 		this.name = name;
-		this.counrty = counrty;
 		this.services = services;
 	}
 
