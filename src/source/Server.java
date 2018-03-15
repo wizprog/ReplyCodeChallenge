@@ -2,6 +2,7 @@ package source;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Server {
@@ -43,7 +44,7 @@ public class Server {
 			String providerName = pom1[0];
 			int numOfCity = Integer.parseInt(pom1[1]);
 			arrayProv[i] = new Provider(providerName,numOfCity);
-			for (int j=0; i<numOfCity; j++) {
+			for (int j=0; j<numOfCity; j++) {
 				String ct = scanner.nextLine();
 				String firstLine = scanner.nextLine();
 				
@@ -63,7 +64,7 @@ public class Server {
 			}			
 		}
 		
-		Project[] arrayProject = new Project[numOfProj];
+		ArrayList<Project> arrayProject = new ArrayList<Project>(numOfProj);
 		
 		for (int i=0; i<numOfProj ; i++) {
 			String lol = scanner.nextLine();
@@ -72,13 +73,24 @@ public class Server {
 			String name = arej[1];
 			int[] serviceAmount = new int[numOfServ];
 			for (int o=2;o<arej.length;o++ ) serviceAmount[o-2] = Integer.parseInt(arej[o]);
-			arrayProject[i] = new Project(penalty,name,serviceAmount);
+			arrayProject.add(new Project(penalty,name,serviceAmount));
 			
 		}
 		
+		
+		for(int i=0;i<arrayProject.size();i++) {
+			for(int j=i;j<arrayProject.size();j++) {
+				if(arrayProject.get(i).getPenalty()<=arrayProject.get(j).getPenalty()) {
+					Project temp=arrayProject.get(i);
+					arrayProject.add(i,arrayProject.remove(j));
+					arrayProject.add(j, temp);
+				}
+			}
+		}
 
-		
-		
+		int pop = 0;
+		int k = 0;
+		k++;
 		
 		
 		

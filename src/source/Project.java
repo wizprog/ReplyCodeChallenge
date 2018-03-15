@@ -6,6 +6,8 @@ public class Project {
 	String name;
 	Country counrty;
 	int[] services;
+	private static int ID=0;
+	int id=ID++;
 
 	public Project(int penalty, String name, int[] services) {
 		super();
